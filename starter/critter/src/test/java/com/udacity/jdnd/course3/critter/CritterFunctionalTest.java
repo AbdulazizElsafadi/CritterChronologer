@@ -2,12 +2,16 @@ package com.udacity.jdnd.course3.critter;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import com.udacity.jdnd.course3.critter.pet.PetController;
-import com.udacity.jdnd.course3.critter.pet.PetDTO;
-import com.udacity.jdnd.course3.critter.pet.PetType;
-import com.udacity.jdnd.course3.critter.schedule.ScheduleController;
-import com.udacity.jdnd.course3.critter.schedule.ScheduleDTO;
-import com.udacity.jdnd.course3.critter.user.*;
+import com.udacity.jdnd.course3.critter.Controller.UserController;
+import com.udacity.jdnd.course3.critter.Controller.DTO.Pet.PetDTO;
+import com.udacity.jdnd.course3.critter.Controller.DTO.Pet.PetType;
+import com.udacity.jdnd.course3.critter.Controller.DTO.Schedule.ScheduleDTO;
+import com.udacity.jdnd.course3.critter.Controller.DTO.User.Customer.CustomerDTO;
+import com.udacity.jdnd.course3.critter.Controller.DTO.User.Employee.EmployeeDTO;
+import com.udacity.jdnd.course3.critter.Controller.DTO.User.Employee.EmployeeRequestDTO;
+import com.udacity.jdnd.course3.critter.Controller.DTO.User.Employee.EmployeeSkill;
+import com.udacity.jdnd.course3.critter.Controller.PetController;
+import com.udacity.jdnd.course3.critter.Controller.ScheduleController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -240,13 +244,13 @@ public class CritterFunctionalTest {
         compareSchedules(sched3, scheds2c.get(1));
     }
 
-
     private static EmployeeDTO createEmployeeDTO() {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setName("TestEmployee");
         employeeDTO.setSkills(Sets.newHashSet(EmployeeSkill.FEEDING, EmployeeSkill.PETTING));
         return employeeDTO;
     }
+
     private static CustomerDTO createCustomerDTO() {
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setName("TestEmployee");

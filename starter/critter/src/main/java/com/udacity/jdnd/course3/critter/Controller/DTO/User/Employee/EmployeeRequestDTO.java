@@ -1,4 +1,4 @@
-package com.udacity.jdnd.course3.critter.user;
+package com.udacity.jdnd.course3.critter.Controller.DTO.User.Employee;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -10,6 +10,7 @@ import java.util.Set;
 public class EmployeeRequestDTO {
     private Set<EmployeeSkill> skills;
     private LocalDate date;
+
 
     public Set<EmployeeSkill> getSkills() {
         return skills;
@@ -25,5 +26,13 @@ public class EmployeeRequestDTO {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeRequestDTO{" +
+                "skills=" + skills +
+                ", date=" + date +
+                '}';
     }
 }
