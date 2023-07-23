@@ -1,10 +1,7 @@
 package com.udacity.jdnd.course3.critter.Service;
 
-
 import com.udacity.jdnd.course3.critter.Controller.DTO.User.Employee.EmployeeSkill;
-import com.udacity.jdnd.course3.critter.Data.Entity.Customer;
 import com.udacity.jdnd.course3.critter.Data.Entity.Employee;
-import com.udacity.jdnd.course3.critter.Data.Repositery.CustomerRepo;
 import com.udacity.jdnd.course3.critter.Data.Repositery.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,33 +14,10 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class UserService {
-
-    @Autowired
-    private CustomerRepo customerRepo;
+public class EmployeeService {
 
     @Autowired
     private EmployeeRepo employeeRepo;
-
-    @Autowired
-    PetService petService;
-
-    /* Customer */
-    public Customer saveCustomer(Customer customer) {
-        return customerRepo.save(customer);
-    }
-
-    public List<Customer> getAllCustomers() {
-        return customerRepo.findAll();
-    }
-
-    public Customer getCustomerById(Long id) {
-        return customerRepo.findById(id).get();
-    }
-
-    public Customer getCustomerByPetId(Long petId) {
-        return customerRepo.findByPetsId(petId);
-    }
 
     /* Employee */
     public Employee saveEmployee(Employee employee) {
@@ -65,5 +39,4 @@ public class UserService {
                 .filter(employee -> employee.getSkills().containsAll(skills))
                 .collect(Collectors.toList());
     }
-
 }

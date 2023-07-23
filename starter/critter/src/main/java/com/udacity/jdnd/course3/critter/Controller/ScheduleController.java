@@ -4,9 +4,9 @@ import com.udacity.jdnd.course3.critter.Controller.DTO.Schedule.ScheduleDTO;
 import com.udacity.jdnd.course3.critter.Data.Entity.Employee;
 import com.udacity.jdnd.course3.critter.Data.Entity.Pet;
 import com.udacity.jdnd.course3.critter.Data.Entity.Schedule;
+import com.udacity.jdnd.course3.critter.Service.EmployeeService;
 import com.udacity.jdnd.course3.critter.Service.PetService;
 import com.udacity.jdnd.course3.critter.Service.ScheduleService;
-import com.udacity.jdnd.course3.critter.Service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +26,7 @@ public class ScheduleController {
     private ScheduleService scheduleService;
 
     @Autowired
-    private UserService userService;
+    private EmployeeService employeeService;
 
     @Autowired
     private PetService petService;
@@ -84,7 +84,7 @@ public class ScheduleController {
         List<Employee> employees = new ArrayList<>();
         if (scheduleDTO.getEmployeeIds() != null) {
             for (Long employeeId : scheduleDTO.getEmployeeIds()) {
-                Employee employee = userService.getEmployeeById(employeeId);
+                Employee employee = employeeService.getEmployeeById(employeeId);
                 employees.add(employee);
             }
         }
